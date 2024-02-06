@@ -50,4 +50,13 @@ get_base_pwd(){
 
 ############## END FUNCTIONS ##############
 
-PROMPT='%B%F{006}$(get_base_pwd) $(parse_git_branch)%F{006}->%b '
+PROMPT='%B%F{006}$(get_base_pwd) $(parse_git_branch)%F{006}->%b%f '
+
+source ${ZDOTDIR}/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Declare the variable
+typeset -A ZSH_HIGHLIGHT_STYLES
+
+# To have paths colored instead of underlined
+ZSH_HIGHLIGHT_STYLES[path]='fg=cyan,underline'
+ZSH_HIGHLIGHT_STYLES[command]='fg=yellow,bold'
