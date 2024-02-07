@@ -47,7 +47,7 @@ parse_git_status(){
     if [[ $? -ne 0 ]]; then
         echo "000"
     elif [[ $(echo ${STATUS} | grep -c "clean") -eq 1 ]]; then
-        echo "113"
+        echo "042" # 036 is another option
     else
         echo "178"
     fi
