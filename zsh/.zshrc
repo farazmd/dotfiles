@@ -3,8 +3,8 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 export HOMEBREW_NO_AUTO_UPDATE=1
-# export CLICOLOR=1
-# export LSCOLORS=GxFxCxDxBxegedabagaced
+export CLICOLOR=1
+export LSCOLORS=gxfxBxDxcxegedabagaced
 
 ############## END EXPORTS ##############
 
@@ -18,6 +18,10 @@ compinit
 zstyle ':completion:*' menu select
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
+# first command + Up/Down to search through history
+
+bindkey '^[[A' up-line-or-search
+bindkey '^[[B' down-line-or-search
 ############## END OPTIONS ##############
 
 ############## ALIAS ##############
@@ -59,8 +63,15 @@ get_base_pwd(){
 
 ############## END FUNCTIONS ##############
 
+
+############## PROMPT ##############
 PROMPT='%B%F{074}$(get_base_pwd)%b $(parse_git_branch)%B%F{074}->%b%f %{$reset_color%}'
 # Declare the variable
+
+############## END PROMPT ##############
+
+
+############## ZSH SYNTAX HIGHLIGHT ##############
 typeset -A ZSH_HIGHLIGHT_STYLES
 
 # To have paths colored instead of underlined
@@ -72,4 +83,8 @@ ZSH_HIGHLIGHT_STYLES[builtin]='fg=130,bold'
 ZSH_HIGHLIGHT_STYLES[function]='fg=174,bold'
 ZSH_HIGHLIGHT_STYLES[default]='fg=183'
 
+############## ZSH SYNTAX HIGHLIGHT END ##############
+
+############## PLUGINS ##############
+source ${ZDOTDIR}/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ${ZDOTDIR}/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
