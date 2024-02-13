@@ -11,3 +11,12 @@ Shell configurations / setups
     ```
 - source ${HOME}/.${SHELL}env
 - source ${HOME}/.config/${SHELL}/${SHELL}rc
+
+## Dependencies
+
+- Nerd Fonts
+
+- ```shell
+        brew tap homebrew/cask-fonts
+        brew install --cask font-hack-nerd-font
+    ```

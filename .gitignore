@@ -1,2 +1,5 @@
 .zcompdump
 .zsh_history
+
+!tmux/plugins/tpm/*
+tmux/plugins
