@@ -12,6 +12,8 @@ Shell configurations / setups
 - source ${HOME}/.${SHELL}env
 - source ${HOME}/.config/${SHELL}/${SHELL}rc
 
+- Using [stow](https://www.gnu.org/software/stow/manual/stow.html)
+
 ## Dependencies
 
 - Nerd Fonts
