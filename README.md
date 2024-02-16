@@ -9,6 +9,10 @@ Shell configurations / setups
     ```shell
         ln -s /path/to/project/${SHELL} ${HOME}/.config/${SHELL}
     ```
+    - For bash
+        ```shell
+            ln -s /path/to/project/bash.bashrc ${HOME}/.bashrc
+        ```
 - source ${HOME}/.${SHELL}env
 - source ${HOME}/.config/${SHELL}/${SHELL}rc
 
