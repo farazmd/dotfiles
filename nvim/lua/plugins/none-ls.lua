@@ -10,6 +10,7 @@ return {
 				null_ls.builtins.diagnostics.eslint_d,
         null_ls.builtins.diagnostics.ansiblelint,
         -- need to add other formatters and linters from https://github.com/nvimtools/none-ls.nvim/blob/main/doc/BUILTINS.md
+        null_ls.builtins.formatting.packer,
 			},
 		})
 
