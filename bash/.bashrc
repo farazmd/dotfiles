@@ -14,7 +14,8 @@ eval "$(pyenv init -)"
 parse_git_branch(){
     branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
     if [[ ! -z "${branch}" ]]; then
-        echo "\[\e[01;38;5;132m\][\[\e[01;38;5;$(parse_git_status)m\]${branch}\[\e[01;38;5;132m\]] "
+        # printf "%s" '\[\e[01;38;5;132m\][\[\e[01;38;5;'$(parse_git_status)'m\]'${branch}'\[\e[01;38;5;132m\]\] '
+        echo -e "\e[01;38;5;132m[\e[01;38;5;$(parse_git_status)m${branch}\e[01;38;5;132m] "
     else
         echo ""
     fi
@@ -35,8 +36,8 @@ parse_git_status(){
 get_base_pwd(){
     basename $(pwd)
 }
-
-PS1="\[\e[01;38;5;074m\]$(get_base_pwd) $(parse_git_branch)\[\e[01;38;5;074m\] (bash) > "
+PROMPT_COMMAND='PS1="\[\e[01;38;5;074m\]\$(get_base_pwd) \$(parse_git_branch)\[\e[01;38;5;074m\](bash) > "'
+# PS1="\[\e[01;38;5;074m\]\$(get_base_pwd) \$(parse_git_branch)\[\e[01;38;5;074m\] (bash) > "
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
