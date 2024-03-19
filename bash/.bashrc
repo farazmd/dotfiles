@@ -36,8 +36,15 @@ parse_git_status(){
 get_base_pwd(){
     basename $(pwd)
 }
-PROMPT_COMMAND='PS1="\[\e[01;38;5;074m\]\$(get_base_pwd) \$(parse_git_branch)\[\e[01;38;5;074m\](bash) > "'
-# PS1="\[\e[01;38;5;074m\]\$(get_base_pwd) \$(parse_git_branch)\[\e[01;38;5;074m\] (bash) > "
+
+prompt_reset=$(tput sgr0)
+bash_highlight=$(tput setaf 058)
+
+# PROMPT_COMMAND='PS1="\[\e[01;38;5;074m\]\$(get_base_pwd) \$(parse_git_branch)\[\e[01;38;5;074m\](bash) > "'
+
+PS1="\[\e[01;38;5;074m\]\$(get_base_pwd) \$(parse_git_branch)\[\e[01;38;5;074m\]\[${bash_highlight}\](bash) \[\e[01;38;5;074m\]>\[$prompt_reset\] " 
+
+
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
