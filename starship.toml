@@ -12,14 +12,14 @@ success_symbol = "[>](bold green)"
 error_symbol = "[x](bold red)"
 
 [git_branch]
-format = "[$symbol](green)[$branch]($style)"
-style = "bold green"
-symbol = " "
+format = "[$symbol](#8aadf4) [$branch]($style)"
+style = "green"
+symbol = ""
 
 [directory]
 truncation_length = 3
 format = "[$path]($style)[$lock_symbol]($lock_style) "
-
+truncation_symbol = ""
 
 [git_status]
 format = '( [\[$all_status$ahead_behind\]]($style) )'
