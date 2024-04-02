@@ -1,0 +1,35 @@
+format = """
+$directory$git_branch$git_status
+$custom$character"""
+
+add_newline = true
+
+[package]
+disabled = true
+
+[character]
+success_symbol = "[>](bold green)"
+error_symbol = "[x](bold red)"
+
+[git_branch]
+format = "[$symbol](green)[$branch]($style)"
+style = "bold green"
+symbol = " "
+
+[directory]
+truncation_length = 3
+format = "[$path]($style)[$lock_symbol]($lock_style) "
+
+
+[git_status]
+format = '( [\[$all_status$ahead_behind\]]($style) )'
+ahead = " ⇡ $count "
+behind = " ⇣ $count "
+deleted = "  $count "
+diverged = " ⇕⇡${ahead_count}⇣${behind_count} "
+stashed = " 📦 $count "
+modified = " * $count "
+staged = ' [ $count ](green)'
+renamed = " r $count "
+untracked = "? ‍$count "
+style = "bold red"

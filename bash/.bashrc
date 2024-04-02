@@ -1,3 +1,5 @@
+######################## Functions ############################
+
 parse_git_branch(){
     branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
     if [[ ! -z "${branch}" ]]; then
@@ -24,14 +26,27 @@ get_base_pwd(){
     basename $(pwd)
 }
 
-prompt_reset=$(tput sgr0)
-bash_highlight=$(tput setaf 058)
+######################### Functions ##########################
+
+######################### Prompt #############################
+
+# prompt_reset=$(tput sgr0)
+# bash_highlight=$(tput setaf 058)
 
 # PROMPT_COMMAND='PS1="\[\e[01;38;5;074m\]\$(get_base_pwd) \$(parse_git_branch)\[\e[01;38;5;074m\](bash) > "'
 
-PS1="\[\e[01;38;5;074m\]\$(get_base_pwd) \$(parse_git_branch)\[\e[01;38;5;074m\]\[${bash_highlight}\](bash) \[\e[01;38;5;074m\]>\[$prompt_reset\] " 
+# PS1="\[\e[01;38;5;074m\]\$(get_base_pwd) \$(parse_git_branch)\[\e[01;38;5;074m\]\[${bash_highlight}\](bash) \[\e[01;38;5;074m\]>\[$prompt_reset\] " 
 
+# Switching to starship (https://starship.rs)
+
+eval "$(starship init bash)"
+
+########################## Prompt #############################
+
+########################## Config #############################
 
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+########################## Config #############################
