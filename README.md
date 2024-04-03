@@ -30,3 +30,8 @@ Shell configurations / setups
     ```
 
 - [starship](https://starship.rs)
+- ripgrep
+- bash (macos only)
+
+## TODO
+[ ] Create installer file
