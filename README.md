@@ -15,6 +15,7 @@ Shell configurations / setups
         ```
 - source ${HOME}/.${SHELL}env
 - source ${HOME}/.config/${SHELL}/${SHELL}rc
+- Link starship.toml to `~/.config/starship.toml`
 
 - Using [stow](https://www.gnu.org/software/stow/manual/stow.html)
 
@@ -25,4 +26,12 @@ Shell configurations / setups
 - ```shell
         brew tap homebrew/cask-fonts
         brew install --cask font-hack-nerd-font
+        brew install --cask font-fira-code-nerd-font
     ```
+
+- [starship](https://starship.rs)
+- ripgrep
+- bash (macos only)
+
+## TODO
+[ ] Create installer file
