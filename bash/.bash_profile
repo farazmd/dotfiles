@@ -12,6 +12,7 @@ export LSCOLORS=gxfxBxDxcxegedabagaced
 export PYENV_ROOT=${XDG_CONFIG_HOME}/.pyenv
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+export STARSHIP_CONFIG="${XDG_CONFIG_HOME}/starship/starship.toml"
 #################### Export #####################
 
 
