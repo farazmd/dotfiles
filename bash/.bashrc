@@ -30,15 +30,7 @@ get_base_pwd(){
 
 ######################### Prompt #############################
 
-# prompt_reset=$(tput sgr0)
-# bash_highlight=$(tput setaf 058)
-
-# PROMPT_COMMAND='PS1="\[\e[01;38;5;074m\]\$(get_base_pwd) \$(parse_git_branch)\[\e[01;38;5;074m\](bash) > "'
-
-# PS1="\[\e[01;38;5;074m\]\$(get_base_pwd) \$(parse_git_branch)\[\e[01;38;5;074m\]\[${bash_highlight}\](bash) \[\e[01;38;5;074m\]>\[$prompt_reset\] " 
-
 # Switching to starship (https://starship.rs)
-
 eval "$(starship init bash)"
 
 ########################## Prompt #############################
