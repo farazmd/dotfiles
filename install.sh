@@ -59,17 +59,15 @@ elif [ "${OS_NAME}" == "linux" ]; then
 		curl -o /tmp/FiraCode/FiraCode.zip -JL https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip &&
 		unzip /tmp/FiraCode/FiraCode.zip -d /tmp/FiraCode &&
 		mv /tmp/FiraCode/*.ttf ${XDG_DATA_HOME}/fonts/ &&
-		fc-cache -fv
+		fc-cache -fv &&
+		rm -rf /tmp/FiraCode
 fi
 
 # ripgrep
-
-curl -o /tmp/ripgrep-${RIPGREP_VERSION}-${RIPGREP_BIN_TYPE}.tar.gz -JL https://github.com/BurntSushi/ripgrep/releases/download/14.1.0/ripgrep-${RIPGREP_VERSION}-${RIPGREP_BIN_TYPE}.tar.gz
-tar xvf /tmp/ripgrep-${RIPGREP_VERSION}-${RIPGREP_BIN_TYPE}.tar.gz -C /tmp/
-
-sudo mv /tmp/ripgrep-${RIPGREP_VERSION}-${RIPGREP_BIN_TYPE}/rg /usr/local/bin/rg
-
-rm -rf /tmp/ripgrep-${RIPGREP_VERSION}-${RIPGREP_BIN_TYPE} /tmp/ripgrep-${RIPGREP_VERSION}-${RIPGREP_BIN_TYPE}.tar.gz
+curl -o /tmp/ripgrep-${RIPGREP_VERSION}-${RIPGREP_BIN_TYPE}.tar.gz -JL https://github.com/BurntSushi/ripgrep/releases/download/14.1.0/ripgrep-${RIPGREP_VERSION}-${RIPGREP_BIN_TYPE}.tar.gz &&
+	tar xvf /tmp/ripgrep-${RIPGREP_VERSION}-${RIPGREP_BIN_TYPE}.tar.gz -C /tmp/ &&
+	sudo mv /tmp/ripgrep-${RIPGREP_VERSION}-${RIPGREP_BIN_TYPE}/rg /usr/local/bin/rg &&
+	rm -rf /tmp/ripgrep-${RIPGREP_VERSION}-${RIPGREP_BIN_TYPE} /tmp/ripgrep-${RIPGREP_VERSION}-${RIPGREP_BIN_TYPE}.tar.gz
 
 # Backup all current configs
 if [ -f "${HOME}/.bashrc" ]; then
