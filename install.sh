@@ -25,26 +25,27 @@ RIPGREP_BIN_TYPE=""
 case "${OSTYPE}" in
 darwin*)
 	OS_NAME="osx"
-	if [[ $(uname -m) =~ "arm64" ]]; then
-		RIPGREP_BIN_TYPE="aarch64-apple-darwin"
+	if [[ $(uname -m) =~ "arm64" ]] || [[ $(uname -m) =~ "aarch64" ]]; then
+		export RIPGREP_BIN_TYPE="aarch64-apple-darwin"
 	else
-		RIPGREP_BIN_TYPE="x86_64-apple-darwin"
+		export RIPGREP_BIN_TYPE="x86_64-apple-darwin"
 	fi
 	;;
 linux-gnu)
 	OS_NAME="linux"
-	if [[ $(uname -m) =~ "arm64" ]]; then
-		RIPGREP_BIN_TYPE="aarch64-unknown-linux-gnu"
+	if [[ $(uname -m) =~ "arm64" ]] || [[ $(uname -m) =~ "aarch64" ]]; then
+		export RIPGREP_BIN_TYPE="aarch64-unknown-linux-gnu"
 	elif [[ $(uname -m) =~ "x86_64" ]]; then
-		RIPGREP_BIN_TYPE="x86_64-unknown-linux-gnu"
+		export RIPGREP_BIN_TYPE="x86_64-unknown-linux-gnu"
 	elif [[ $(uname -m) =~ "i386" ]] || [[ $(uname -m) =~ "i686" ]]; then
-		RIPGREP_BIN_TYPE="i686-unknown-linux-gnu"
+		export RIPGREP_BIN_TYPE="i686-unknown-linux-gnu"
 	fi
 	;;
 esac
 
-if [ "${OS_NAME}" == "osx" ]; then
+echo "RG bin: ${RIPGREP_BIN_TYPE}"
 
+if [ "${OS_NAME}" == "osx" ]; then
 	# Nerd fonts
 	brew tap homebrew/cask-fonts &&
 		brew install --cask font-hack-nerd-font &&
@@ -55,7 +56,7 @@ elif [ "${OS_NAME}" == "linux" ]; then
 		mkdir ${XDG_DATA_HOME}/fonts
 	fi
 	mkdir /tmp/FiraCode &&
-		curl -o /tmp/FiraCode -JL https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip &&
+		curl -o /tmp/FiraCode/FiraCode.zip -JL https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip &&
 		unzip /tmp/FiraCode/FiraCode.zip -d /tmp/FiraCode &&
 		mv /tmp/FiraCode/*.ttf ${XDG_DATA_HOME}/fonts/ &&
 		fc-cache -fv
@@ -92,7 +93,7 @@ DOTFILES_INSTALLED=1
 DOWNLOAD_PATH="${XDG_CONFIG_HOME}/.dotfiles" &&
 
 	# git clone
-	git clone git@github.com:farazmd/dotfiles.git "${DOWNLOAD_PATH}" &&
+	git clone -b master https://github.com/farazmd/dotfiles.git "${DOWNLOAD_PATH}" &&
 	# Install paths
 	DOTFILES_INSTALL_BASE_PATH="${XDG_CONFIG_HOME}" &&
 	NVIM_INSTALL_PATH="${DOTFILES_INSTALL_BASE_PATH}/nvim" &&
@@ -121,5 +122,5 @@ if [ ${DOTFILES_INSTALLED} -eq 0 ]; then
 	echo -e "All files have been symlinked to the below locations:"
 	echo -e "NVIM: ${NVIM_INSTALL_PATH}"
 	echo -e "TMUX: ${TMUX_INSTALL_PATH}"
-	echo -e "STARSHIP: ${STARSHIP_INSTALL_APTH}"
+	echo -e "STARSHIP: ${STARSHIP_INSTALL_PATH}"
 fi
