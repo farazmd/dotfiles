@@ -1,0 +1,6 @@
+.zcompdump
+.zsh_history
+.zsh_sessions
+tmux/plugins/*
+!tmux/plugins/tpm
+!tmux/plugins/catppuccin-custom
