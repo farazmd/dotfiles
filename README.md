@@ -4,7 +4,7 @@ Shell configuration / setup
 ## Dependencies
 
 - Nerd Fonts
-  - ```shell
+  ```shell
     brew tap homebrew/cask-fonts
     brew install --cask font-hack-nerd-font
     brew install --cask font-fira-code-nerd-font
