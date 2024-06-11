@@ -4,3 +4,5 @@
 tmux/plugins/*
 !tmux/plugins/tpm
 !tmux/plugins/catppuccin-custom
+!tmux/plugins/tmux
+!tmux/plugins/tmux-sensible
