@@ -91,7 +91,7 @@ DOTFILES_INSTALLED=1
 DOWNLOAD_PATH="${XDG_CONFIG_HOME}/.dotfiles" &&
 
 	# git clone
-	git clone -b master https://github.com/farazmd/dotfiles.git "${DOWNLOAD_PATH}" &&
+	git clone -b master --recurse-submodules https://github.com/farazmd/dotfiles.git "${DOWNLOAD_PATH}" &&
 	# Install paths
 	DOTFILES_INSTALL_BASE_PATH="${XDG_CONFIG_HOME}" &&
 	NVIM_INSTALL_PATH="${DOTFILES_INSTALL_BASE_PATH}/nvim" &&
