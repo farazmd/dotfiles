@@ -12,15 +12,15 @@ Shell configuration / setup
 - [starship](https://starship.rs)
 - [ripgrep(v14.1.0)](https://github.com/BurntSushi/ripgrep/tree/14.1.0)
 - bash (macos only)
-- nodejs
+- nvm
 
 ## Setup
 
-- Install starship and nodejs
+- Install starship 
+- Install nvm (to ~/.config/nvm folder)
 - Run the installer script:
   ```shell
     curl https://raw.githubusercontent.com/farazmd/dotfiles/master/install.sh | bash
   ```
 - The installer script installs nerdfonts (font-hack-nerd-font and font-fira-code-nerd-font) as well as ripgrep
-
-
+- Source ~/.bash_profile

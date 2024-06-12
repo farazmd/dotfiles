@@ -108,7 +108,7 @@ DOWNLOAD_PATH="${XDG_CONFIG_HOME}/.dotfiles" &&
 	ln -sf "${DOWNLOAD_PATH}/nvim" "${NVIM_INSTALL_PATH}" &&
 
 	# startship
-	ln -sf "${DOWNLOAD_PATH}/startship" "${STARSHIP_INSTALL_PATH}" &&
+	ln -sf "${DOWNLOAD_PATH}/starship" "${STARSHIP_INSTALL_PATH}" &&
 
 	# tmux
 	ln -sf "${DOWNLOAD_PATH}/tmux" "${TMUX_INSTALL_PATH}" &&
