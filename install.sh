@@ -26,24 +26,22 @@ case "${OSTYPE}" in
 darwin*)
 	OS_NAME="osx"
 	if [[ $(uname -m) =~ "arm64" ]] || [[ $(uname -m) =~ "aarch64" ]]; then
-		export RIPGREP_BIN_TYPE="aarch64-apple-darwin"
+		RIPGREP_BIN_TYPE="aarch64-apple-darwin"
 	else
-		export RIPGREP_BIN_TYPE="x86_64-apple-darwin"
+		RIPGREP_BIN_TYPE="x86_64-apple-darwin"
 	fi
 	;;
 linux-gnu)
 	OS_NAME="linux"
 	if [[ $(uname -m) =~ "arm64" ]] || [[ $(uname -m) =~ "aarch64" ]]; then
-		export RIPGREP_BIN_TYPE="aarch64-unknown-linux-gnu"
+		RIPGREP_BIN_TYPE="aarch64-unknown-linux-gnu"
 	elif [[ $(uname -m) =~ "x86_64" ]]; then
-		export RIPGREP_BIN_TYPE="x86_64-unknown-linux-gnu"
+		RIPGREP_BIN_TYPE="x86_64-unknown-linux-gnu"
 	elif [[ $(uname -m) =~ "i386" ]] || [[ $(uname -m) =~ "i686" ]]; then
-		export RIPGREP_BIN_TYPE="i686-unknown-linux-gnu"
+		RIPGREP_BIN_TYPE="i686-unknown-linux-gnu"
 	fi
 	;;
 esac
-
-echo "RG bin: ${RIPGREP_BIN_TYPE}"
 
 if [ "${OS_NAME}" == "osx" ]; then
 	# Nerd fonts
@@ -89,7 +87,9 @@ fi
 DOTFILES_INSTALLED=1
 
 DOWNLOAD_PATH="${XDG_CONFIG_HOME}/.dotfiles" &&
-
+	if [ -d "${DOWNLOAD_PATH}" ]; then
+		DOWNLOAD_PATH="${XDG_CONFIG_HOME}/.farazmd_dotfiles"
+	fi
 	# git clone
 	git clone -b master --recurse-submodules https://github.com/farazmd/dotfiles.git "${DOWNLOAD_PATH}" &&
 	# Install paths

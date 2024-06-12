@@ -12,10 +12,11 @@ Shell configuration / setup
 - [starship](https://starship.rs)
 - [ripgrep(v14.1.0)](https://github.com/BurntSushi/ripgrep/tree/14.1.0)
 - bash (macos only)
+- nodejs
 
 ## Setup
 
-- Install starship
+- Install starship and nodejs
 - Run the installer script:
   ```shell
     curl https://raw.githubusercontent.com/farazmd/dotfiles/master/install.sh | bash
