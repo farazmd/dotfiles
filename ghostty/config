@@ -1,0 +1,7 @@
+font-family = "JetBrains Mono"
+font-size = 14
+theme = "catppuccin-mocha"
+title = " "
+keybind = ctrl+s>c=new_tab
+keybind = ctrl+s>x=close_surface
+keybind = ctrl+s>r=reload_config
